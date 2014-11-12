@@ -1,10 +1,10 @@
 package com.skysea.pushing.xmpp;
 
-import org.eclipse.jetty.server.AbstractNetworkConnector;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
+import org.eclipse.jetty.server.nio.SelectChannelConnector;
 
 /**
 * Created by zhangzhi on 2014/11/12.
@@ -20,7 +20,7 @@ public class TestWebServer {
     }
 
     public String getHost() {
-        AbstractNetworkConnector connector = (AbstractNetworkConnector) server.getConnectors()[0];
+        SelectChannelConnector connector = (SelectChannelConnector) server.getConnectors()[0];
         return String.format("http://localhost:%d", connector.getLocalPort());
     }
 

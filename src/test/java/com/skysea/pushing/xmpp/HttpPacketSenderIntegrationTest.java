@@ -1,7 +1,6 @@
 package com.skysea.pushing.xmpp;
 
 import org.eclipse.jetty.io.EndPoint;
-import org.eclipse.jetty.server.AbstractNetworkConnector;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
