@@ -2,8 +2,8 @@ package com.skysea.pushing;
 
 import com.skysea.pushing.api.EventPublisher;
 import com.skysea.pushing.api.PublishException;
-import com.skysea.pushing.api.PublisherFactory;
-import com.skysea.pushing.xmpp.XMPPPublisherFactory;
+import com.skysea.pushing.api.PushInfrastructure;
+import com.skysea.pushing.xmpp.XMPPPushInfrastructure;
 
 import java.util.HashMap;
 
@@ -12,7 +12,7 @@ public class App {
 
     public static void main(String[] args) throws PublishException {
         /* 获得发布器工厂*/
-        PublisherFactory factory = createPublisherFactory(
+        PushInfrastructure factory = new XMPPPushInfrastructure(
                 args[0],    /* xmppdomain*/
                 args[1]     /* pushGatewayUrl */);
 
@@ -27,9 +27,5 @@ public class App {
         eventPublisher.publish(null/* null：所有用户 */ ,"event_name", eventArgs);
         System.out.println("publish success.");
 
-    }
-
-    private static PublisherFactory createPublisherFactory(String xmppDomain, String pushGatewayUrl) {
-        return new XMPPPublisherFactory(xmppDomain, pushGatewayUrl);
     }
 }

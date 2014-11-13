@@ -1,23 +1,22 @@
 package com.skysea.pushing.xmpp;
 
 import com.skysea.pushing.api.EventPublisher;
-import com.skysea.pushing.api.PublisherFactory;
+import com.skysea.pushing.api.PushInfrastructure;
 
 /**
- * XMPP发布器工厂实现。
+ * XMPP消息推送设施。
  * Created by zhangzhi on 2014/11/12.
  */
-public final class XMPPPublisherFactory implements PublisherFactory {
-    private final HttpPacketSender sender;
+public final class XMPPPushInfrastructure implements PushInfrastructure {
     private final XMPPEventPublisher eventPublisher;
 
     /**
-     * 实例化XMPP发布器工厂。
+     * 实例化XMPP消息推送设施。
      * @param xmppDomain XMPP域。
      * @param pushGatewayUrl 推送网关Url地址。
      */
-    public XMPPPublisherFactory(String xmppDomain, String pushGatewayUrl) {
-        sender = new HttpPacketSender(xmppDomain, pushGatewayUrl);
+    public XMPPPushInfrastructure(String xmppDomain, String pushGatewayUrl) {
+        HttpPacketSender sender = new HttpPacketSender(xmppDomain, pushGatewayUrl);
         eventPublisher = new XMPPEventPublisher(sender);
     }
 

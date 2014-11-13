@@ -4,14 +4,14 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class XMPPPublisherFactoryTest {
+public class XMPPPushInfrastructureTest {
 
     @Test
     public void testGetEventPublisher() throws Exception {
         // Arrange
         String xmppDomain = "skysea.com";
         String gatewayUrl = "http://skysea.com/push/packet";
-        XMPPPublisherFactory factory = new XMPPPublisherFactory(xmppDomain, gatewayUrl);
+        XMPPPushInfrastructure factory = new XMPPPushInfrastructure(xmppDomain, gatewayUrl);
 
         // Act
         XMPPEventPublisher publisher = (XMPPEventPublisher)factory.getEventPublisher();

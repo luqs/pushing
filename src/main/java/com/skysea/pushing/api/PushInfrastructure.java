@@ -1,10 +1,10 @@
 package com.skysea.pushing.api;
 
 /**
- * 发布器抽象工厂。
+ * 用于消息推送的基础设施。
  * Created by zhangzhi on 2014/11/12.
  */
-public interface PublisherFactory {
+public interface PushInfrastructure {
 
     /**
      * 获得事件发布器对象实例。
