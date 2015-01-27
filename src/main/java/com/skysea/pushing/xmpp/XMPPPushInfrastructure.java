@@ -1,7 +1,9 @@
 package com.skysea.pushing.xmpp;
 
 import com.skysea.pushing.api.EventPublisher;
+import com.skysea.pushing.api.MessagePublisher;
 import com.skysea.pushing.api.PushInfrastructure;
+
 
 /**
  * XMPP消息推送设施。
@@ -9,6 +11,7 @@ import com.skysea.pushing.api.PushInfrastructure;
  */
 public final class XMPPPushInfrastructure implements PushInfrastructure {
     private final XMPPEventPublisher eventPublisher;
+    private final XMPPMessagePublisher messagePublisher;
 
     /**
      * 实例化XMPP消息推送设施。
@@ -18,6 +21,7 @@ public final class XMPPPushInfrastructure implements PushInfrastructure {
     public XMPPPushInfrastructure(String xmppDomain, String pushGatewayUrl) {
         HttpPacketSender sender = new HttpPacketSender(xmppDomain, pushGatewayUrl);
         eventPublisher = new XMPPEventPublisher(sender);
+        messagePublisher = new XMPPMessagePublisher(sender);
     }
 
     /**
@@ -27,5 +31,13 @@ public final class XMPPPushInfrastructure implements PushInfrastructure {
     @Override
     public EventPublisher getEventPublisher() {
         return eventPublisher;
+    }
+    /**
+     * 获得事件发布器实例。
+     * @return
+     */
+    @Override
+    public MessagePublisher getMessagePublisher() {
+    	return messagePublisher;
     }
 }

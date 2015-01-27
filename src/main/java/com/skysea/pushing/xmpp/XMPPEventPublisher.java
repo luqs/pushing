@@ -40,10 +40,10 @@ final class XMPPEventPublisher implements EventPublisher {
      * @param eventArgs 事件参数列表。
      */
     @Override
-    public void publish(String user, String event, Map<String, String> eventArgs) throws PublishException {
+    public void publish(String to, String event, Map<String, String> eventArgs) throws PublishException {
         ContractUtils.requiresNotEmpty(event, "event");
 
-        Message packet = newEventMessage(user);
+        Message packet = newEventMessage(to);
         /* 增加事件协议扩展节点 */
         packet.addExtension(createEventExtension(event, eventArgs));
 

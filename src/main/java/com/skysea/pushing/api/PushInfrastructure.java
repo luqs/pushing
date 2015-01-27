@@ -11,4 +11,6 @@ public interface PushInfrastructure {
      * @return 事件发布器。
      */
     EventPublisher getEventPublisher();
+
+	MessagePublisher getMessagePublisher();
 }

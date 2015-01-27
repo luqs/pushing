@@ -2,11 +2,13 @@ package com.skysea.pushing.api;
 
 import java.util.Map;
 
+import com.skysea.pushing.xmpp.MessageKind;
+
 /**
  * 事件发布器，提供向用户客户端发送分布式事件通知的功能。
- * Created by zhangzhi on 2014/11/12.
+ * Created by luqs on 2014/11/12.
  */
-public interface EventPublisher {
+public interface MessagePublisher{
 
     /**
      * 发布一个事件
@@ -16,5 +18,5 @@ public interface EventPublisher {
      * @param event     事件名称。
      * @param eventArgs 事件参数列表。
      */
-    void publish(String to, String event, Map<String, String> eventArgs) throws PublishException;
+    void publish(String from,String to,MessageKind kind, Map obj) throws PublishException;
 }
