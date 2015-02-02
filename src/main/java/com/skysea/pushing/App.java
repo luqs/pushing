@@ -28,7 +28,7 @@ public class App {
         arti.put("articlImg", "http://i7.baidu.com/it/u=475759650,3718589085&fm=96&s=B9D22BD04E1079CC60B4077C030050F4");
         arti.put("articleUrl", "http://i7.baidu.com/it/u=475759650,3718589085&fm=96&s=B9D22BD04E1079CC60B4077C030050F4");
         //arti.put("userName", "admin");  delete from map
-        messagePublisher.publish("admin", null,MessageKind.ARTICLE, arti);
+        messagePublisher.publish("admin", "8000",MessageKind.ARTICLE, arti);
         
 //        EventPublisher eventPublisher = factory.getEventPublisher();
 //        HashMap<String, String> sche = new HashMap<String, String>();
