@@ -38,16 +38,16 @@ final class XMPPMessagePublisher implements MessagePublisher {
 	public void publish(String from, String to,MessageKind messageKind, Map obj)
 			throws PublishException {
     	ContractUtils.requiresNotNull(obj, "ArticleContent");
-    	ContractUtils.requiresNotEmpty(to, "to");
     	ContractUtils.requiresNotEmpty(from, "from");
 
         Message msg = new Message();
+        msg.setType(Message.Type.headline);
         msg.setFrom(sender.newJidForUser(from));
         if (!StringUtils.isNullOrEmpty(to)) {
             /* 如果消息不是广播，则要设置收件人jid。 */
             msg.setTo(sender.newJidForUser(to));
         }
-        msg.setType(Message.Type.chat);
+//        msg.setType(Message.Type.chat);
         msg.setBody(new Gson().toJson(obj));
        
         /* 增加事件协议扩展节点 */
