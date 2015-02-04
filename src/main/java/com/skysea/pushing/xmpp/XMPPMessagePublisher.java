@@ -38,7 +38,9 @@ final class XMPPMessagePublisher implements MessagePublisher {
 	public void publish(String from, String to,MessageKind messageKind, Map obj)
 			throws PublishException {
     	ContractUtils.requiresNotNull(obj, "ArticleContent");
+//    	ContractUtils.requiresNotEmpty(to, "to");
     	ContractUtils.requiresNotEmpty(from, "from");
+
         Message msg = new Message();
         msg.setType(Message.Type.headline);
         msg.setFrom(sender.newJidForUser(from));
